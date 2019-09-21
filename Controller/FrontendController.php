@@ -33,7 +33,7 @@ class FrontendController
 
 	public function inscription()
 	{
-
+/*
 		if (empty($_POST)) 
 		{
 			$validation = true;
@@ -74,12 +74,12 @@ class FrontendController
 
 		switch ($error) {
 			case 1:
-				$error = 
+				$error = '<p>'
 				break;
 			case 2:			
 
 		}
-
+*/
 
 		require('View/Frontend/inscription.php');
 

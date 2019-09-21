@@ -11,16 +11,20 @@
 
 	<body>
 		<header>
-			<img src="" />
+			<div class="row">
+				<div class="col-md-1">
+					<img id="logo" src="Public/Img/logo.png" />
+				</div>
 
-			<nav>
-				<ul class="offset-4">
-					<li class="col-md-1"><a href="index.php?action=home">Accueil</a></li>
-					<li class="col-md-1"><a href="index.php?action=biography">Biographie</a></li>
-					<li class="col-md-1"><a href="index.php?action=contact">Contact</a></li>
-					<li class="col-md-1"><a href="index.php?action=connection">Connection</a></li>
-				</ul>
-			</nav>
+				<nav class="col-md-10">
+					<ul class="offset-4">
+						<li class="col-md-1 align-items"><a href="index.php?action=home">Accueil</a></li>
+						<li class="col-md-1"><a href="index.php?action=biography">Biographie</a></li>
+						<li class="col-md-1"><a href="index.php?action=contact">Contact</a></li>
+						<li class="col-md-1"><a href="index.php?action=connection">Connexion</a></li>
+					</ul>
+				</nav>
+			</div>
 		</header>
 
 	<?= $content ?>

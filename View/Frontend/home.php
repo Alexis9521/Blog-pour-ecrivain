@@ -7,8 +7,14 @@ $title = "Accueil";
 
 ob_start();
 ?>
+	
+<div class="content_home">
+	<div class="content_slider">
+		<img class="img_slider"	src="Public/Img/te.jpg" />
+	</div>
+</div>
 
-<img src="" />
+
 
 
 <?php
