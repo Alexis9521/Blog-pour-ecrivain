@@ -9,13 +9,14 @@ ob_start();
 ?>
 	
 <div class="content_home">
-	<div class="content_slider">
-		<img class="img_slider"	src="Public/Img/te.jpg" />
+	<div id="article">
+		<article id="content_article">
+			<h3><?= ?></h3>
+			<p id="article_text"><?= ?></p>
+			
+		</article>
 	</div>
 </div>
-
-
-
 
 <?php
 

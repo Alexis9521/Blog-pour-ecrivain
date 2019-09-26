@@ -1,20 +1,44 @@
-
-
-img{
-
-	width: 100%;
-	height: auto;
-
+body{
+/*
+ overflow: hidden;
+*/
 }
 
 .img_slider{
 
 	width: 100%;
-	height: 600px;
+	height: 700px;
 
 }
 
-#logo{
+#connexion_page {
+
+	background-image: url("../Img/background_connexion.jpg");
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+	margin: 0px;
+	padding: 0px;
+
+}
+
+#article {
+
+	height: 750px;
+
+}
+
+.content_home {
+
+	background-image: url("../Img/background_accueil.jpg");
+	height: 100%;
+	background-position: center;
+	margin: 0px;
+	padding: 0px;
+
+}
+
+#logo {
 
 	width: 45px;
 	height: 45px;
@@ -22,12 +46,68 @@ img{
 
 }
 
+#title_form_login {
+
+	margin-top: 0.5em;
+
+}
+
+#form_connexion {
+
+	margin-top: 12em;
+	margin-bottom: 12em;
+	background-color: rgba(0,0,0,0.5);
+
+	color: white;
+	border-radius: 15px;
+	height: 400px;
+
+
+}
 
 
 
-ul{
+.form_login {
 
-	display: flex;
-	list-style: none;
+	margin-bottom: 2em;
+	border-radius: 5px;
+
+}
+
+li {
+
+	list-style-type: none;
+
+}
+
+ul {
+
+	margin-bottom: 0px;
+
+}
+
+
+#content_article {
+
+	background-color: gray;
+
+}
+
+footer {
+
+
+	padding: 0px !important;
+
+}
+
+header {
+
+	padding: 0px !important;
+
+}
+
+#footer_one > a, #footer_two > a {
+
+	padding-bottom: 8px;
 
 }

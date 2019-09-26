@@ -24,15 +24,11 @@ if(isset($_GET['action']))
 			$frontendController->biography();
 		elseif($_GET['action'] == 'contact')
 			$frontendController->contact();
-		elseif($_GET['action'] == 'connection')
+		elseif($_GET['action'] == 'connexion')
 			$frontendController->connection();
 		elseif($_GET['action'] == 'inscription')
 			$frontendController->inscription();
 	
-	
-	
-
-
 }
 else
 	$frontendController->home();
