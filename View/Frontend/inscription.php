@@ -7,23 +7,34 @@ ob_start();
 
 ?>
 
-<form action="index.php?action=inscription">
-				
-	<label for="user_name">Votre pseudo</label>
-	<input type="text" id="user_name "name="user_name" />
+<div class="col-md-12">
+	<div class="row">
+		<div id="inscription_form" class="col-md-12 d-flex justify-content-center">
+			<form id="form_inscription" class="col-md-2"action="index.php?action=inscription">
+				<div class="d-flex justify-content-center">
+					<h5>Entrez les informations</h5>
+				</div>
+				<div class="offset-2">
+							
+					<label for="user_name">Votre pseudo :</label></br>
+					<input class="form_login" type="text" id="user_name "name="user_name" /></br>
 
-	<label for="user_email">Votre email</label>
-	<input type="email"  id="user_email" name="user_email" />
+					<label for="user_email">Votre email :</label></br>
+					<input class="form_login" type="email"  id="user_email" name="user_email" /></br>
 
-	<label for="user_password">Votre mots de passe</label>
-	<input type="password" id="user_password" name="user_password" />
+					<label for="user_password">Votre mots de passe :</label></br>
+					<input class="form_login" type="password" id="user_password" name="user_password" /></br>
 
-	<label for="user_confirmpass" >Confirmation du mots de passe</label>
-	<input type="password" id="user_confirmpass" name="user_confirmpass" />
+					<label for="user_confirmpass" >Confirmation :</label></br>
+					<input class="form_login" type="password" id="user_confirmpass" name="user_confirmpass" /></br>
 
-	<button type="submit">Validez</button>
+					<button  class="form_login" type="submit">Validez</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 
-</form>
 
 <?php
 

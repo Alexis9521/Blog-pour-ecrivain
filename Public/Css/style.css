@@ -1,16 +1,3 @@
-body{
-/*
- overflow: hidden;
-*/
-}
-
-.img_slider{
-
-	width: 100%;
-	height: 700px;
-
-}
-
 #connexion_page {
 
 	background-image: url("../Img/background_connexion.jpg");
@@ -21,6 +8,29 @@ body{
 	padding: 0px;
 
 }
+
+#inscription_form {
+
+	background-image: url("../Img/background_connexion.jpg");
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+	margin: 0px;
+	padding: 0px;
+
+}
+
+#form_inscription {
+
+	background-color: rgba(0,0,0,0.5);
+	color: white;
+	margin-top: 15em;
+	margin-bottom: 15em;
+	border-radius: 15px;
+	height: 500px;	
+
+}
+
 
 #article {
 
@@ -38,13 +48,6 @@ body{
 
 }
 
-#logo {
-
-	width: 45px;
-	height: 45px;
-	margin: 10px;
-
-}
 
 #title_form_login {
 
@@ -72,6 +75,23 @@ body{
 	margin-bottom: 2em;
 	border-radius: 5px;
 
+
+}
+
+button {
+
+	background: rgba(52,145,178);
+	border: none;
+	color: white;
+	padding: 6px;
+	
+}
+
+button:hover {
+
+	background: white;
+	color: rgba(52,145,178);
+
 }
 
 li {
@@ -86,11 +106,42 @@ ul {
 
 }
 
+.content_home {
 
-#content_article {
+	height: 800px;
 
-	background-color: gray;
+}
 
+
+#message_presentation {
+
+	background-color: rgb(0,0,0);
+	color: rgb(255,255,255);
+	margin-top: 4.5em;
+
+
+}
+
+#view_article {
+
+	background-color: rgba(0,0,0,0.5);
+	margin-top: -16px;
+	height: 648px;
+}
+
+#rendu_article {
+
+	background-color: rgba(93,113,133,0.8);
+	height: 450px;
+	
+
+}
+
+#test {
+
+	border-bottom: 2px outset;
+
+	
 }
 
 footer {
