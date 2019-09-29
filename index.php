@@ -20,8 +20,8 @@ if(isset($_GET['action']))
 	if(isset($_GET['action']))
 		if($_GET['action'] == 'home')
 			$frontendController->home();
-		elseif($_GET['action'] == 'biography')
-			$frontendController->biography();
+		elseif($_GET['action'] == 'article')
+			$frontendController->article();
 		elseif($_GET['action'] == 'contact')
 			$frontendController->contact();
 		elseif($_GET['action'] == 'connexion')

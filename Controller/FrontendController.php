@@ -10,10 +10,10 @@ class FrontendController
 
 	}
 
-	public function biography()
+	public function article()
 	{
 
-		require('View/Frontend/biography.php');
+		require('View/Frontend/article.php');
 
 	}
 
@@ -84,8 +84,4 @@ class FrontendController
 		require('View/Frontend/inscription.php');
 
 	}
-
-
-
-
 }

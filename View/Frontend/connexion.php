@@ -19,8 +19,8 @@ $title = 'Connexion'
 					<input class="form_login" type="text" name="pseudo" /></br>
 					<label>Mots de passe :</label></br>
 					<input class="form_login" type="password" name="password"  /></br>
-					<button  id="submit_login" class="form_login" type="submit" name="connexion" >Connexion</button></br>
-					<a class="text-white text-uppercase center" href="index.php?action=inscription">Inscription</a>
+					<button  id="submit_login" class="offset-2" type="submit" name="connexion" >Connexion</button></br>
+					<a id="link_inscritpion" class="text-white text-uppercase" href="index.php?action=inscription">Inscription</a>
 
 				</div>
 			</form>

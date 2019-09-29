@@ -28,7 +28,7 @@ ob_start();
 					<label for="user_confirmpass" >Confirmation :</label></br>
 					<input class="form_login" type="password" id="user_confirmpass" name="user_confirmpass" /></br>
 
-					<button  class="form_login" type="submit">Validez</button>
+					<button  id="submit_inscription" type="submit">Validez</button>
 				</div>
 			</form>
 		</div>

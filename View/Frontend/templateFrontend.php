@@ -13,14 +13,18 @@
 		<div id="bloc_page">
 			<header>
 				<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top col-md-12">
-					<div class="col-md-12 d-flex">
+					<div class="col-md-12 d-flex align-items-center">
 						<a class="navbar-brand text-white " href="index.php?action=home">Jean</a>
-						<ul class="d-flex offset-8">
-							<li class="nav-item"><a class="nav-link text-white" href="index.php?action=home">Accueil</a></li>
-							<li class="nav-item"><a class="nav-link text-white" href="index.php?action=biography">Biographie</a></li>
-							<li class="nav-item"><a class="nav-link text-white" href="index.php?action=contact">Contact</a></li>
-							<li class="nav-item"><a class="nav-link text-white" href="index.php?action=inscription">Inscription</a></li>
-							<li class="nav-item"><a class="nav-link text-white" href="index.php?action=connexion">Connexion</a></li>
+						<ul id="rend_link" class="d-flex col-md-11">
+							<div id="nav_link"class=" col-md-2 d-flex justify-content-center offset-5">
+								<li class="nav-item"><a class="nav-link text-white" href="index.php?action=home">Accueil</a></li>
+								<li class="nav-item"><a class="nav-link text-white" href="index.php?action=article">Article</a></li>
+								<li class="nav-item"><a class="nav-link text-white" href="index.php?action=contact">Contact</a></li>
+							</div>
+							<div class="d-flex offset-3">
+								<li class="nav-item"><a id="inscription_link" class="nav-link text-white" href="index.php?action=inscription">Inscription</a></li>
+								<li class="nav-item"><a id="connexion_link" class="nav-link text-white" href="index.php?action=connexion">Connexion</a></li>
+							</div>
 						</ul>
 					</div>
 				</nav>

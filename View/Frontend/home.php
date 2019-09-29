@@ -7,30 +7,28 @@ $title = "Accueil";
 
 ob_start();
 ?>
-	
-<div class="content_home">
-	<div id="article" class="d-flex justify-content-center">
-		<div id="content_article" class="col-md-11">
-			<div id="message_presentation">
-				<h1>Bonjour</h1>
-				<p>Para</p>
+<div id="content_home">
+	<div id="background_home" class="col-md-10 offset-1">
+		<header id="header_home">
+			<div id="title_home" class="text-white text-center">
+
+			<h1>Bonjour bienvenue sur le blog de Jean Forteroche !</h1>
+			<p>Montius nos tumore inusitato quodam et novo ut rebellis et maiestati recalcitrantes Augustae per haec quae strepit incusat iratus nimirum quod contumacem praefectum, quid rerum ordo postulat ignorare dissimulantem formidine tenus iusserim custodiri</p>
 
 			</div>
-			<article id="view_article" class="d-flex align-items-center justify-content-center">
-				<div id="rendu_article" class="col-md-9 text-white">
-					<div id="test">
-						<h3><?php ?>Zouglou</h3> </br>
-						<p id="article_text"><?php ?>Denique Antiochensis ordinis vertices sub uno elogio iussit occidi ideo efferatus, quod ei celebrari vilitatem intempestivam urgenti, cum inpenderet inopia, gravius rationabili responderunt; et perissent ad unum ni comes orientis tunc Honoratus fixa constantia restitisset.</p></br>
-						<p id="info_article">Par : <?php ?> le : <?php ?></p>
-					</div>
-					<div id="test2">
-						<h3><?php ?>Zouglou</h3> </br>
-						<p id="article_text"><?php ?></p>Denique Antiochensis ordinis vertices sub uno elogio iussit occidi ideo efferatus, quod ei celebrari vilitatem intempestivam urgenti, cum inpenderet inopia, gravius rationabili responderunt; et perissent ad unum ni comes orientis tunc Honoratus fixa constantia restitisset.</p></br>
-						<p id="info_article">Par : <?php ?> le : <?php ?></p>
-					</div>
+		</header>
+
+		<section id="section_home">
+			<div id="content_section_home" class="d-flex text-white">
+				<div id="img_one_home" class="offset-1">
+					<img src="Public/Img/img_roman.jpg" />
 				</div>
-			</article>
-		</div>
+				<div class="text-center offset-3">
+					<h2>Le choix du roman en ligne</h2>
+					<p>Présentation</p>
+				</div>
+			</div>
+		</section>
 	</div>
 </div>
 
