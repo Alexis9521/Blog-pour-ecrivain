@@ -24,7 +24,7 @@ class FrontendController
 
 	}
 
-	public function connection()
+	public function login()
 	{
 
 		require('View/Frontend/connexion.php');

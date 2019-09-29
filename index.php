@@ -25,7 +25,7 @@ if(isset($_GET['action']))
 		elseif($_GET['action'] == 'contact')
 			$frontendController->contact();
 		elseif($_GET['action'] == 'connexion')
-			$frontendController->connection();
+			$frontendController->login();
 		elseif($_GET['action'] == 'inscription')
 			$frontendController->inscription();
 	
