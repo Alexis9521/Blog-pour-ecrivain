@@ -1,3 +1,10 @@
 <?php
 
-class CommentManager
+class CommentsManager extends Manager
+{
+
+
+	// Content 
+
+
+}

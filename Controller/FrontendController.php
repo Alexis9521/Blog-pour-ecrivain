@@ -1,6 +1,6 @@
 <?php
 
-class FrontendController
+class FrontendController extends Manager
 {
 
 	public function home()
@@ -33,55 +33,61 @@ class FrontendController
 
 	public function inscription()
 	{
-/*
-		if (empty($_POST)) 
-		{
-			$validation = true;
-
-			if(empty($_POST['user_pseudo']) || ($_POST['user_email']) || ($_POST['user_password']) || ($_POST['user_confirmpass']))
-			{
-				$validation = false;
-				$error = 1;
-			}
-			if (strlen($_POST['user_pseudo']) > 50 || ($_POST['user_email']) > 255 ($_POST['user_password']) 6 <  && > 50)
-			{
-				$validation = false;
-			}
-			if(!(preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#', $_POST['user_mail'])))
-			{
-				$validation = false;
-			}
-			if($validation)
-			{
-				$userManager = new UserManager();
-
-				if(empty($userManager->exist($_POST['user_pseudo'])))
-				{
-					$hashpass = password_hash($_POST['user_password'], PASSWORD_DEFAULT);
-
-
-					$user = new User
-					([
-						'pseudo' => $_POST['user_pseudo'],
-						'user_pass' => $hashpass,
-						'user_email' => $_POST['user_email']
-					]);
-
-					// redirection vers la function add user 
-				}
-			}
-		}
-
-		switch ($error) {
-			case 1:
-				$error = '<p>'
-				break;
-			case 2:			
-
-		}
-*/
-
 		require('View/Frontend/inscription.php');
 
+		if (!empty($_POST)) 
+		{
+			$errors = array();
+
+			if(empty($_POST['user_first_name']) || $_POST['user_first_name'])
+			{
+				$errors['user_first_name'] = " Prénom invalide ";
+			}
+			
+			if(empty($_POST['user_name']) || $_POST['user_name'])
+			{
+				$errors['user_name'] = "Nom invalide ";
+			} 
+
+			if(empty($_POST['user_pseudo']) || !preg_match('/^[a-zA-Z0-9]+$/', $_POST['user_pseudo']))
+			{
+				$errors['user_pseudo'] = " Votre pseudo n'est pas valide ";
+			}
+			
+			if(empty($_POST['user_email']) || !filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL))
+			{
+				$errors['user_email'] = "Email non valide ";
+			} 
+
+			if(empty($_POST['user_password']) || $_POST['user_password'] != $_POST['user_confirmpass'])
+			{
+				$errors['user_password'] = "Vos mots de passe ne corresponde pas";
+			}
+
+			if($errors)
+			{
+
+				$userManager = new UserManager; 
+
+				if(empty($userManager->exists($_POST['user_pseudo'])))
+				{
+					$hashedPass = password_hash($_POST['user_password'], PASSWORD_DEFAULT);
+
+					$user = new User ([
+
+						'user_first_name' => $_POST['user_first_name'],
+						'user_name'	=> $_POST['user_name'],
+						'user_pseudo' => $_POST['user_pseudo'],
+						'user_password' => $hashedPass,
+						'user_email' => $_POST['user_email']
+
+					]);
+
+					$userManager->add($user);
+				}
+
+			}
+
+		}
 	}
 }

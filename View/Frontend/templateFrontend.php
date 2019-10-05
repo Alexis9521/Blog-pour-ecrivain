@@ -23,7 +23,7 @@
 							</div>
 							<div class="d-flex offset-3">
 								<li class="nav-item"><a id="inscription_link" class="nav-link text-white" href="index.php?action=inscription">Inscription</a></li>
-								<li class="nav-item"><a id="connexion_link" class="nav-link text-white" href="index.php?action=connexion">Connexion</a></li>
+								<li class="nav-item"><a id="connexion_link" class="nav-link text-white" href="index.php?action=login">Connexion</a></li>
 							</div>
 						</ul>
 					</div>
@@ -41,7 +41,7 @@
 							<a class="text-white" href="index.php?action=home">Accueil</a></li>
 							<a class="text-white" href="index.php?action=biography">Biographie</a></li>
 							<a class="text-white" href="index.php?action=contact">Contact</a></li>
-							<a class="text-white" href="index.php?action=connexion">Connexion</a></li>
+							<a class="text-white" href="index.php?action=login">Connexion</a></li>
 
 						</div>
 

@@ -7,7 +7,7 @@ $title = 'Connexion'
 <div class="col-md-12">
 	<div class="row">
 		<div id="connexion_page" class="col-md-12 d-flex justify-content-center">
-			<form id="form_connexion"  class="col-md-2" action="">
+			<form id="form_connexion"  class="col-md-2" action="index.php?action=login">
 				<div class="d-flex justify-content-center"><!-- Voir comment améliorer  -->
 
 					<h5 id="title_form_login">Saisissez vos identifiants</h5>

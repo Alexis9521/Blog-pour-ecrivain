@@ -2,22 +2,29 @@
 
 $title = 'Inscription';
 
-
 ob_start();
 
 ?>
 
+
+
 <div class="col-md-12">
 	<div class="row">
 		<div id="inscription_form" class="col-md-12 d-flex justify-content-center">
-			<form id="form_inscription" class="col-md-2"action="index.php?action=inscription">
+			<form id="form_inscription" class="col-md-2"action="" method="POST">
 				<div class="d-flex justify-content-center">
 					<h5>Entrez les informations</h5>
 				</div>
 				<div class="offset-2">
-							
-					<label for="user_name">Votre pseudo :</label></br>
-					<input class="form_login" type="text" id="user_name "name="user_name" /></br>
+					
+					<label for="user_first_name">Votre prénom :</label></br>
+					<input class="form_login" type="text" id="user_first_name "name="user_first_name" /></br>
+
+					<label for="user_name">Votre nom</label></br>
+					<input class="form_login" type="text"  id="user_name" name="user_name" /></br>
+
+					<label for="user_pseudo">Votre pseudo :</label></br>
+					<input class="form_login" type="text" id="user_pseudo "name="user_pseudo" /></br>
 
 					<label for="user_email">Votre email :</label></br>
 					<input class="form_login" type="email"  id="user_email" name="user_email" /></br>
