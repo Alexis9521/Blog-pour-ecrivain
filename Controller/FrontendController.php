@@ -1,6 +1,6 @@
 <?php
 
-class FrontendController extends Manager
+class FrontendController
 {
 
 	public function home()
@@ -33,61 +33,73 @@ class FrontendController extends Manager
 
 	public function inscription()
 	{
-		require('View/Frontend/inscription.php');
+		require_once('Model/Manager.php');
 
-		if (!empty($_POST)) 
-		{
-			$errors = array();
+		$error = null;
+        
+        if (!empty($_POST)) { // si l'utilisateur a posté le formulaire
 
-			if(empty($_POST['user_first_name']) || $_POST['user_first_name'])
-			{
-				$errors['user_first_name'] = " Prénom invalide ";
-			}
-			
-			if(empty($_POST['user_name']) || $_POST['user_name'])
-			{
-				$errors['user_name'] = "Nom invalide ";
-			} 
+            $validation = true;
+            
+            if (empty($_POST['user_first_name'])
+            	|| empty($_POST['user_name'])
+            	|| empty($_POST['user_pseudo']) 
+            	|| empty($_POST['user_email']) 
+            	|| empty($_POST['user_password']) 
+            	|| empty($_POST['user_confirmpass']))
 
-			if(empty($_POST['user_pseudo']) || !preg_match('/^[a-zA-Z0-9]+$/', $_POST['user_pseudo']))
-			{
-				$errors['user_pseudo'] = " Votre pseudo n'est pas valide ";
-			}
-			
-			if(empty($_POST['user_email']) || !filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL))
-			{
-				$errors['user_email'] = "Email non valide ";
-			} 
+            {
+                $validation = false;
+                $error = "Un ou plusieurs champs son vide"; // présence d'un champ vide
+            }
 
-			if(empty($_POST['user_password']) || $_POST['user_password'] != $_POST['user_confirmpass'])
-			{
-				$errors['user_password'] = "Vos mots de passe ne corresponde pas";
-			}
+            if (strlen($_POST['user_first_name']) > 50 
+            	|| strlen($_POST['user_name']) > 50 
+            	|| strlen($_POST['user_pseudo']) > 255 
+            	|| strlen($_POST['user_email']) > 100 
+            	|| strlen($_POST['user_password']) > 100)
+            {
+                $validation = false;
+                $error = "Valeur erronée"; // valeur erronée d'un champ
+            }
 
-			if($errors)
-			{
+            if (($_POST['user_password'] !== $_POST['user_confirmpass'])) 
+            {
+                $validation = false;
+                $error = "Vos mots de passe ne corresponde pas"; // mauvaise confirmation de mpd
+            }
 
-				$userManager = new UserManager; 
+            if (!(preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['user_email']))) 
+            {
+                $validation = false;
+                $error = "Le format de l'email n'est pas valide"; // user_email non conforme
+            }
 
-				if(empty($userManager->exists($_POST['user_pseudo'])))
-				{
-					$hashedPass = password_hash($_POST['user_password'], PASSWORD_DEFAULT);
+            if ($validation) 
+            {
+             
+                $userManager = new UserManager;
 
-					$user = new User ([
+               if (empty($userManager->exists($_POST['user_pseudo']))) {
 
-						'user_first_name' => $_POST['user_first_name'],
-						'user_name'	=> $_POST['user_name'],
-						'user_pseudo' => $_POST['user_pseudo'],
-						'user_password' => $hashedPass,
-						'user_email' => $_POST['user_email']
+                    $hashedPassword = password_hash($_POST['user_password'], PASSWORD_DEFAULT);
 
-					]);
+                    $user = new User([
+                    	'user_first_name' => $_POST['user_first_name'],
+                    	'user_name' => $_POST['user_name'],
+                        'user_pseudo' => $_POST['user_pseudo'],
+                        'user_password' => $hashedPassword,
+                        'user_email' => $_POST['user_email']
+                    ]);
 
-					$userManager->add($user);
-				}
+                    $userManager->add($user);
 
-			}
-
-		}
+                    header('Location: index.php?action=login');
+                } else {
+                    $error = "Le pseudo demandé est déja prit";
+                }
+            }
+        }
+	    require('view/frontend/inscription.php');
 	}
 }

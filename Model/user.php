@@ -12,12 +12,14 @@ class User
 	private $user_date_creation;
 
 
-	public function __contruct(Array $data)
+	public function __construct(Array $data)
 	{
 
 		$this->hydrate($data);
 
 	}
+
+
 
 	public function hydrate($data)
 	{
@@ -45,10 +47,9 @@ class User
 			$this->setUser_password($data['user_password']);
 		}
 
-		if(isset($data['user_date_creatoin'])){
+		if(isset($data['user_date_creation'])){
 			$this->setUser_date_creation($data['user_date_creation']);
 		}
-
 	}
 
 	public function getUser_id()
@@ -122,7 +123,6 @@ class User
 
 		$this->user_name = $user_name;
 
-
 	}
 
 	public function setUser_pseudo($user_pseudo)
@@ -153,4 +153,5 @@ class User
 		$this->user_date_creation = $user_date_creation;
 
 	}
+
 }

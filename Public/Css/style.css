@@ -37,6 +37,12 @@
 
 }
 
+.form_login {
+
+	margin-bottom: 2em !important;
+
+}
+
 /*			 */
 /* Page home */
 /* 			 */
@@ -141,9 +147,7 @@
 
 .form_login {
 
-	margin-bottom: 2em;
 	border-radius: 5px;
-
 
 }
 
@@ -168,7 +172,7 @@ button:hover {
 
 #submit_inscription {
 
-	margin-left: 3.5em;
+	padding: 5px;
 	border-radius: 5px;
 }
 
