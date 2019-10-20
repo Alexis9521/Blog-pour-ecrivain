@@ -33,13 +33,22 @@
 	margin-top: 12em;
 	margin-bottom: 12em;
 	border-radius: 15px;
-	height: 500px;	
+	height: 420px;	
 
 }
 
 .form_login {
 
 	margin-bottom: 2em !important;
+
+}
+
+#form_delete {
+
+
+	position: absolute;
+	top: 300px;
+	z-index: 150;
 
 }
 
@@ -178,15 +187,16 @@ button:hover {
 
 #submit_login {
 
-	margin-left: 2.8em;
+
 	border-radius: 5px;
 	margin-bottom: 1em;
 
 }
 
-#link_inscritpion {
+#log_page {
 
-	margin-left: 2.7em;
+	margin-left: 25px;
+	margin-right: 25px;
 
 }
 
@@ -210,7 +220,20 @@ ul {
 
 }
 
-#connexion_link {
+#logout_link {
+
+	border: 2px outset rgb(253,0,58);
+	border-radius: 5px;
+
+
+}
+
+#account_link {
+
+	font-size: 1.2em;
+
+}
+#connexion_link, #account_link{
 
 	margin-left: 1em;
 
@@ -251,5 +274,33 @@ header {
 #footer_one > a, #footer_two > a {
 
 	padding-bottom: 8px;
+
+}
+
+#pseudo {
+
+	margin: 0px !important;
+
+}
+
+#content_account {
+
+
+	height: 600px;
+
+}
+
+#Delete{
+
+	position: absolute;
+	top: 400px;
+
+}
+
+/* A trié */
+
+#section_admin {
+
+	height: 700px;
 
 }

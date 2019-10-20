@@ -10,6 +10,7 @@ class User
 	private $user_email;
 	private $user_password;
 	private $user_date_creation;
+	private $user_role;
 
 
 	public function __construct(Array $data)
@@ -19,37 +20,39 @@ class User
 
 	}
 
-
-
 	public function hydrate($data)
 	{
-		if(isset($data['user_id'])){
+		if(isset($data['user_id']))
 			$this->setUser_id($data['user_id']);
-		}
+		
 
-		if(isset($data['user_first_name'])){
+		if(isset($data['user_first_name']))
 			$this->setUser_first_name($data['user_first_name']);
-		}
+		
 
-		if(isset($data['user_name'])){
+		if(isset($data['user_name']))
 			$this->setUser_name($data['user_name']);
-		}
+		
 
-		if(isset($data['user_pseudo'])){
+		if(isset($data['user_pseudo']))
 			$this->setUser_pseudo($data['user_pseudo']);
-		}
+		
 
-		if(isset($data['user_email'])){
+		if(isset($data['user_email']))
 			$this->setUser_email($data['user_email']);
-		}
+		
 
-		if(isset($data['user_password'])){
+		if(isset($data['user_password']))
 			$this->setUser_password($data['user_password']);
-		}
+		
 
-		if(isset($data['user_date_creation'])){
+		if(isset($data['user_date_creation']))
 			$this->setUser_date_creation($data['user_date_creation']);
-		}
+		
+
+		if(isset($data['user_role'])) 
+			$this->setUser_role($data['user_role']);
+	
 	}
 
 	public function getUser_id()
@@ -98,6 +101,13 @@ class User
 	{
 
 		return $this->user_date_creation;
+
+	}
+
+	public function getUser_role()
+	{
+
+		return $this->user_role;
 
 	}
 
@@ -151,6 +161,13 @@ class User
 	{
 
 		$this->user_date_creation = $user_date_creation;
+
+	}
+
+	public function setUser_role($user_role)
+	{
+
+		$this->user_role = $user_role;
 
 	}
 

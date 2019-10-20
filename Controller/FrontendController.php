@@ -10,24 +10,37 @@ class FrontendController
 
 	}
 
+	public function admin()
+	{
+
+		require('View/Frontend/admin.php');
+
+	}
+
 	public function article()
+    {
+    	// VOIR POURQUOI LE GET NE PREND PAS LID DE LARTICLE.
+
+        $articleManager = new ArticleManager(); // création de l'Article Manager pour centraliser toutes les requêtes
+
+        	$article = $articleManager->exists($_GET['id']);
+
+        	if(!$article)
+        	{
+        		echo "Ca marche pas";
+        	}
+        	else
+        	{
+            $article = $articleManager->get($_GET['id']);
+            }
+
+        require('view/frontend/article.php');
+    }
+
+	public function account()
 	{
 
-		require('View/Frontend/article.php');
-
-	}
-
-	public function contact()
-	{
-
-		require('View/Frontend/contact.php');
-
-	}
-
-	public function login()
-	{
-
-		require('View/Frontend/connexion.php');
+		require('View/Frontend/account.php');
 
 	}
 
@@ -85,11 +98,13 @@ class FrontendController
                     $hashedPassword = password_hash($_POST['user_password'], PASSWORD_DEFAULT);
 
                     $user = new User([
+
                     	'user_first_name' => $_POST['user_first_name'],
                     	'user_name' => $_POST['user_name'],
                         'user_pseudo' => $_POST['user_pseudo'],
                         'user_password' => $hashedPassword,
                         'user_email' => $_POST['user_email']
+
                     ]);
 
                     $userManager->add($user);
@@ -101,5 +116,118 @@ class FrontendController
             }
         }
 	    require('view/frontend/inscription.php');
+	}
+
+	public function login()
+	{
+
+		$error = null;
+
+		if(!empty($_POST))
+		{
+
+			$validation = true;
+
+
+			if(empty($_POST['pseudo']) || empty($_POST['password']))
+			{
+
+				$validation = false;
+				$error = " Un ou plusieurs champs son vide ";
+
+			}
+
+			if(strlen($_POST['pseudo']) > 100 || strlen($_POST['password']) > 100) 
+			{
+				
+				$validation = false;
+				$error = "Valeur erronée";
+
+			}
+
+			if($validation)
+			{
+
+				$userManager = new UserManager;
+				$user = $userManager->get($_POST['pseudo']);
+
+				if(!$user)
+					$error = "A voir";
+				else
+				{
+
+					$passwordVerif = password_verify($_POST['password'], $user->getUser_password());
+
+					if ($passwordVerif) 
+					{
+					
+						$_SESSION['id'] = $user->getUser_id();
+						$_SESSION['role'] = $user->getUser_role();
+						$_SESSION['pseudo'] = $user->getUser_pseudo();
+
+						header('Location: index.php?action=home');
+
+					}
+					else
+						$error = "A voir";
+				}
+			}
+			if($validation)
+			{
+
+				$adminManager = new AdminManager;
+				$admin = $adminManager->get($_POST['pseudo']);
+
+				if(!$admin)
+
+					$error = "Pseudo incorect";
+
+				else
+				{
+
+					$passwordVerif = password_verify($_POST['password'], $admin->getAdmin_password());
+
+					if($passwordVerif)
+					{
+
+						$_SESSION['id'] = $admin->getAdmin_id();
+						$_SESSION['role'] = $admin->getAdmin_role();
+						$_SESSION['pseudo'] = $admin->getAdmin_pseudo();
+
+						header('Location: index.php?action=home');
+
+					}
+					else
+						$error = "password";
+				}
+			}						
+		}
+		require('View/Frontend/connexion.php');
+	}
+
+	public function logout()
+	{
+
+		session_destroy();
+		header('Location: index.php?action=home');
+
+	}
+
+	public function deleteUser()
+	{
+
+		if(empty($_SESSION['id']))
+		{
+
+			header('Location: index.php?action=home');
+			exit();
+		}
+		else
+		{
+			
+			$userManager = new UserManager;
+			$user = $userManager->delete($_SESSION['id']);
+
+		}
 	}
 }

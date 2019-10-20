@@ -4,7 +4,6 @@ $title = "Accueil";
 
 
 
-
 ob_start();
 ?>
 <div id="content_home">

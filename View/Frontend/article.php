@@ -16,8 +16,7 @@ ob_start();
 
 		<section id="section_article">
 			<article>
-				
-
+	
 
 			</article>
 

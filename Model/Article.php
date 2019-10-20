@@ -2,13 +2,13 @@
 
 class Article {
 
-	private $id
-	private $title
-	private $pseudo
-	private $article
-	private $creation_date
+	private $id;
+	private $title;
+	private $article;
+	private $creation_date;
+	private $reported;
 
-	public function __contruct(Array $data)
+	public function __construct(Array $data)
 	{
 
 		$this->hydrate($data);
@@ -17,51 +17,51 @@ class Article {
 	public function hydrate($data)
 	{
 		if(isset($data['id']))
-			$this->groupId($data['id']);
+			$this->setId($data['id']);
 
 		if(isset($data['title']))
-			$this->groupTitle($data['title']);
+			$this->setTitle($data['title']);
 
 		if(isset($data['pseudo']))
-			$this->groupPseudo($data['pseudo']);
+			$this->setPseudo($data['pseudo']);
 
 		if(isset($data['article']))
-			$this->groupArticle($data['article']);
+			$this->setArticle($data['article']);
 
 		if(isset($data['creation_date']))
-			$this->groupCreation_date($data['creation_date']);
+			$this->setCreation_date($data['creation_date']);
 
 	}
 
-	public function returnId()
+	public function getId()
 	{
 
 		return $this->id;
 
 	}
 
-	public function returnTitle()
+	public function getTitle()
 	{
 
 		return $this->title;
 
 	}
 
-	public function returnPseudo()
+	public function getPseudo()
 	{
 
 		return $this->pseudo;
 
 	}
 
-	public function returnArticle()
+	public function getArticle()
 	{
 
 		return $this->article;
 
 	}
 
-	public function returnCreation_date()
+	public function getCreation_date()
 	{
 
 		return $this->creation_date;
@@ -70,42 +70,38 @@ class Article {
 
 	// Voir
 
-	public function groupId()
+	public function setId($id)
 	{
+
 		$this->id = $id;
-		return $this;
 
 	}
 
-	public function groupTitle()
+	public function setTitle($title)
 	{
 
 		$this->title = htmlspecialchars($title);
-		return $this;
 
 	}
 
-	public function groupPseudo()
+	public function setPseudo($pseudo)
 	{
 
 		$this->pseudo = htmlspecialchars($pseudo);
-		return $this;
 
 	}
 
-	public function groupArticle()
+	public function setArticle($article)
 	{
 
 		$this->article = htmlspecialchars($article);
-		return $this;
 
 	}
 
-	public function groupCreation_date()
+	public function setCreation_date($creation_date)
 	{
 
-		$this->creation_date = $creation_date
-		return $this;
+		$this->creation_date = $creation_date;
 
 	}
 }
