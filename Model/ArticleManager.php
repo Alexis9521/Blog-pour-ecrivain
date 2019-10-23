@@ -13,7 +13,7 @@ class ArticleManager extends Manager
 	public function get($id)
 	{
 
-		$query = $this->dbConnect()->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, "%d/%m/%Y") AS creation_date FROM article WHERE id = ?');
+		$query = $this->dbConnect()->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date FROM article WHERE id = ?');
 
         $query->execute([
             $id
@@ -68,7 +68,7 @@ class ArticleManager extends Manager
         $query->execute([
 
             $article->getTitle(),
-            $article->getArticle()
+            $article->getContent()
 
         ]);
     }
@@ -80,7 +80,7 @@ class ArticleManager extends Manager
         $query->execute([
 
             ':title' => $article->getTitle(),
-            ':content' => $article->getArticle(),
+            ':content' => $article->getContent(),
             ':id' => $article->getId()
 
         ]);

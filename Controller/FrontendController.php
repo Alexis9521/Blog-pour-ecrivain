@@ -19,22 +19,33 @@ class FrontendController
 
 	public function article()
     {
-    	// VOIR POURQUOI LE GET NE PREND PAS LID DE LARTICLE.
 
-        $articleManager = new ArticleManager(); // création de l'Article Manager pour centraliser toutes les requêtes
+    	$articleManager = new ArticleManager();
+
+    	$article = $articleManager->getArticle();
+
+        require('view/frontend/article.php');
+    }
+
+    public function viewArticle()
+    {
+
+    	$articleManager = new ArticleManager(); // création de l'Article Manager pour centraliser toutes les requêtes
 
         	$article = $articleManager->exists($_GET['id']);
 
         	if(!$article)
         	{
-        		echo "Ca marche pas";
+        		header('Location: index.php?action=error.php');
+        		exit();
         	}
         	else
         	{
-            $article = $articleManager->get($_GET['id']);
+            	$article = $articleManager->get($_GET['id']);
             }
 
-        require('view/frontend/article.php');
+          require('View/Frontend/viewarticle.php');
+
     }
 
 	public function account()

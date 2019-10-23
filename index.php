@@ -25,8 +25,6 @@ if(isset($_GET['action']))
 		$frontendController->home();
 	elseif($_GET['action'] == 'article')
 		$frontendController->article();
-	elseif($_GET['action'] == 'contact')
-		$frontendController->contact();
 	elseif($_GET['action'] == 'login')
 		$frontendController->login();
 	elseif($_GET['action'] == 'inscription')
@@ -39,6 +37,8 @@ if(isset($_GET['action']))
 		$frontendController->deleteUser();
 	elseif($_GET['action'] == 'admin')
 		$backendController->admin();
+	elseif($_GET['action'] == 'viewarticle')
+		$frontendController->viewarticle();
 	
 }
 else

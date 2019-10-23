@@ -34,21 +34,20 @@ if(session_status() == PHP_SESSION_NONE)
 
 							<?php if(isset($_SESSION['id']))
 							{ ?>
-							<div class="d-flex offset-3">
+								<div class="d-flex offset-3">
 								
-								<p id="pseudo" class="text-white d-flex	align-items-center"><?php echo $_SESSION['pseudo']; ?></p>
-								<li class="nav_item"><a title="Compte" id="account_link" class="nav-link text-white" href="index.php?action=account"><i class="far fa-user"></i></a></li>
-								<li class="nav-item"><a  id="logout_link" class="nav-link text-white" href="index.php?action=deconnexion">Déconnexion</a></li>
+									<p id="pseudo" class="text-white d-flex	align-items-center"><?php echo $_SESSION['pseudo']; ?></p>
+									<li class="nav_item"><a title="Compte" id="account_link" class="nav-link text-white" href="index.php?action=account"><i class="far fa-user"></i></a></li>
+									<li class="nav-item"><a  id="logout_link" class="nav-link text-white" href="index.php?action=deconnexion">Déconnexion</a></li>
 								<?php if($_SESSION['role'] > 1){ ?>
 									<li class="nav-item"><a  class="nav-link text-white" href="index.php?action=admin">Admin</a></li>
 								<?php } ?>
-							</div>
+								</div>
 							<?php }else{ ?>
-							<div class="d-flex offset-3">
-								<li class="nav-item"><a id="inscription_link" class="nav-link text-white" href="index.php?action=inscription">Inscription</a></li>
-								<li class="nav-item"><a id="connexion_link" class="nav-link text-white" href="index.php?action=login">Connexion</a></li>
-
-							</div>
+								<div class="d-flex offset-3">
+									<li class="nav-item"><a id="inscription_link" class="nav-link text-white" href="index.php?action=inscription">Inscription</a></li>
+									<li class="nav-item"><a id="connexion_link" class="nav-link text-white" href="index.php?action=login">Connexion</a></li>
+								</div>
 							<?php }
 							?>
 						</ul>

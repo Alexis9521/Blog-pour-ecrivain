@@ -103,7 +103,7 @@
 /* Page Article */
 /* 				*/
 
-#content_article {
+#content_article, #content_viewarticle{
 
 	background-image: url("../Img/background_accueil.jpg");
 	height: 100%;
@@ -302,5 +302,25 @@ header {
 #section_admin {
 
 	height: 700px;
+
+}
+
+#header_article{
+
+	background-color: rgba(0,0,0,0.5);
+	border-bottom: 2px solid rgba(0,0,0,0.8);
+	height: 100px;
+
+}
+
+#header_viewarticle {
+
+	padding-top: 60px!important;;
+
+}
+
+#comment {
+
+	height: 300px;
 
 }

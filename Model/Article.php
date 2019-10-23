@@ -4,9 +4,9 @@ class Article {
 
 	private $id;
 	private $title;
-	private $article;
+	private $content;
 	private $creation_date;
-	private $reported;
+
 
 	public function __construct(Array $data)
 	{
@@ -25,8 +25,8 @@ class Article {
 		if(isset($data['pseudo']))
 			$this->setPseudo($data['pseudo']);
 
-		if(isset($data['article']))
-			$this->setArticle($data['article']);
+		if(isset($data['content']))
+			$this->setContent($data['content']);
 
 		if(isset($data['creation_date']))
 			$this->setCreation_date($data['creation_date']);
@@ -54,10 +54,10 @@ class Article {
 
 	}
 
-	public function getArticle()
+	public function getcontent()
 	{
 
-		return $this->article;
+		return $this->content;
 
 	}
 
@@ -91,10 +91,10 @@ class Article {
 
 	}
 
-	public function setArticle($article)
+	public function setContent($content)
 	{
 
-		$this->article = htmlspecialchars($article);
+		$this->content = htmlspecialchars($content);
 
 	}
 

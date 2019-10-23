@@ -123,7 +123,7 @@ class User
 	public function setUser_first_name($user_first_name)
 	{
 
-		$this->user_first_name = $user_first_name;
+		$this->user_first_name = htmlspecialchars($user_first_name);
 
 
 	}
@@ -131,21 +131,21 @@ class User
 	public function setUser_name($user_name)
 	{
 
-		$this->user_name = $user_name;
+		$this->user_name = htmlspecialchars($user_name);
 
 	}
 
 	public function setUser_pseudo($user_pseudo)
 	{
 
-		$this->user_pseudo = $user_pseudo;
+		$this->user_pseudo = htmlspecialchars($user_pseudo);
 
 	}
 
 	public function setUser_email($user_email)
 	{
 
-		$this->user_email = $user_email;
+		$this->user_email = htmlspecialchars($user_email);
 
 	}
 
