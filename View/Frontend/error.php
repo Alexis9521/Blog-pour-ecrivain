@@ -1,3 +1,1 @@
-<h1> 404 ERROR NOT FOUND
-
-</h1>
+<h1>ERROR 404 NOT FOUND</h1>

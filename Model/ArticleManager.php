@@ -6,10 +6,13 @@ class ArticleManager extends Manager
     public function __construct()
     {
 
-        $this->dbConnect();
+        $this->dbConnect(); // Connexion à la bdd
 
     }
 
+    /*
+    Récupère les articles 
+    */
 	public function get($id)
 	{
 
@@ -30,6 +33,9 @@ class ArticleManager extends Manager
         }
 	}
 
+    /*
+    Vérifie que l'article existe
+    */
     public function exists($id)
     {
         if (is_numeric($id))
@@ -44,8 +50,11 @@ class ArticleManager extends Manager
         {
             return false;
         } 
-     }
+    }
 
+    /*
+    Affiche les articles 
+    */
     public function getArticle()
     {
 
@@ -61,10 +70,14 @@ class ArticleManager extends Manager
 
     }
 
-    public function add(Article $article) // oblige à recevoir un objet Article en paramètre
+    /*
+    Ajout d'un article
+    */
+    public function add(Article $article) 
+    // oblige à recevoir un objet Article en paramètre
     {
-        $query = $this->dbConnect()->prepare('INSERT INTO article(title, content, date_creation, date_update) 
-            VALUES(?, ?, NOW(), NOW())');
+        $query = $this->dbConnect()->prepare('INSERT INTO article(title, content, creation_date) 
+            VALUES(?, ?, NOW())');
         $query->execute([
 
             $article->getTitle(),
@@ -73,9 +86,12 @@ class ArticleManager extends Manager
         ]);
     }
 
+    /*
+    Mise à jour d'un article
+    */
     public function update(Article $article)
     {
-        $query = $this->dbConnect()->prepare('UPDATE article SET title = :title, content = :content, date_update = NOW() 
+        $query = $this->dbConnect()->prepare('UPDATE article SET title = :title, content = :content
             WHERE id = :id') or die(print_r($this->dbConnect()->errorInfo()));
         $query->execute([
 
@@ -85,7 +101,9 @@ class ArticleManager extends Manager
 
         ]);
     }
-
+    /*
+    Supression d'un article
+    */
     public function delete(Article $article)
     {
 
@@ -94,6 +112,6 @@ class ArticleManager extends Manager
 
             $article->getId()
 
-        ]);
+        ]);  
     }
 }

@@ -16,7 +16,9 @@ class FrontendController
 		require('View/Frontend/admin.php');
 
 	}
-
+	/*
+	Récuperation et affichages des articles
+	*/
 	public function article()
     {
 
@@ -24,27 +26,77 @@ class FrontendController
 
     	$article = $articleManager->getArticle();
 
-        require('view/frontend/article.php');
+        require('View/Frontend/article.php');
     }
 
     public function viewArticle()
     {
 
-    	$articleManager = new ArticleManager(); // création de l'Article Manager pour centraliser toutes les requêtes
+    	$articleManager = new ArticleManager(); 
+    	// création de l'Article Manager pour centraliser toutes les requêtes
+    	$commentManager = new CommentManager();
 
-        	$article = $articleManager->exists($_GET['id']);
+    	if (!empty($_GET['comment']) && !empty($_GET['article']) && $_GET['event'] == 'report') {
 
-        	if(!$article)
-        	{
-        		header('Location: index.php?action=error.php');
-        		exit();
-        	}
-        	else
-        	{
-            	$article = $articleManager->get($_GET['id']);
+            $comment = new Comments([
+
+                'id' => $_GET['comment']
+
+            ]);
+
+            $commentManager->report($comment);
+
+            header('Location: index.php?action=viewarticle&id=' . $_GET['article'] . '#comments');
+            exit();
+        }
+       	// si l'utilisateur a posté un commentaire
+        if (!empty($_POST)) {
+
+            $validation = true;
+
+            if (empty($_POST['comments'])) {
+
+                $validation = false;
+
             }
 
-          require('View/Frontend/viewarticle.php');
+            // si les champs sont remplis et conformes
+            if ($validation) {
+
+                $comment = new Comments([
+
+                    'article_id' => $_GET['id'],
+                    'pseudo' =>  $_SESSION['pseudo'],
+                    'comment' => $_POST['comments']
+
+                ]);
+
+                $commentManager->add($comment);
+            }
+
+            header('Location: index.php?action=viewarticle&id=' . $_GET['id'] . '#comments');
+        }
+	    
+
+    	$article = $articleManager->exists($_GET['id']);
+
+    	if(!$article)
+    	{
+
+    		header('Location: index.php?action=error.php');
+    		exit();
+
+    	}
+    	else
+    	{
+
+        	$article = $articleManager->get($_GET['id']);
+
+        }
+
+        $comments = $commentManager->getPosted($_GET['id']);
+
+    require('View/Frontend/viewarticle.php');
 
     }
 
@@ -74,7 +126,8 @@ class FrontendController
 
             {
                 $validation = false;
-                $error = "Un ou plusieurs champs son vide"; // présence d'un champ vide
+                $error = "Un ou plusieurs champs son vide"; 
+                // présence d'un champ vide
             }
 
             if (strlen($_POST['user_first_name']) > 50 
@@ -90,13 +143,15 @@ class FrontendController
             if (($_POST['user_password'] !== $_POST['user_confirmpass'])) 
             {
                 $validation = false;
-                $error = "Vos mots de passe ne corresponde pas"; // mauvaise confirmation de mpd
+                $error = "Vos mots de passe ne corresponde pas"; 
+                // mauvaise confirmation de mpd
             }
 
             if (!(preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['user_email']))) 
             {
                 $validation = false;
-                $error = "Le format de l'email n'est pas valide"; // user_email non conforme
+                $error = "Le format de l'email n'est pas valide"; 
+                // user_email non conforme
             }
 
             if ($validation) 
@@ -121,12 +176,17 @@ class FrontendController
                     $userManager->add($user);
 
                     header('Location: index.php?action=login');
+
                 } else {
+
                     $error = "Le pseudo demandé est déja prit";
+
                 }
             }
         }
-	    require('view/frontend/inscription.php');
+
+	    require('View/Frontend/inscription.php');
+
 	}
 
 	public function login()
@@ -156,14 +216,16 @@ class FrontendController
 
 			}
 
-			if($validation)
+			if($validation)// Méthod connexion pour l'utilisateur
 			{
 
 				$userManager = new UserManager;
 				$user = $userManager->get($_POST['pseudo']);
 
 				if(!$user)
-					$error = "A voir";
+
+					$error = "Vos identifiants ne corresponde pas";
+
 				else
 				{
 
@@ -180,10 +242,10 @@ class FrontendController
 
 					}
 					else
-						$error = "A voir";
+						$error = "Vos identifiants ne corresponde pas";
 				}
 			}
-			if($validation)
+			if($validation)// Méthod connexion admin
 			{
 
 				$adminManager = new AdminManager;
@@ -191,7 +253,7 @@ class FrontendController
 
 				if(!$admin)
 
-					$error = "Pseudo incorect";
+					$error = "Vos identifiants ne corresponde pas";
 
 				else
 				{
@@ -209,11 +271,12 @@ class FrontendController
 
 					}
 					else
-						$error = "password";
+						$error = "Vos identifiants ne corresponde pas";
 				}
 			}						
 		}
-		require('View/Frontend/connexion.php');
+
+		require("View/Frontend/connexion.php");
 	}
 
 	public function logout()
@@ -224,21 +287,10 @@ class FrontendController
 
 	}
 
-	public function deleteUser()
+	public function error()
 	{
 
-		if(empty($_SESSION['id']))
-		{
+		require("View/Frontend/error.php");
 
-			header('Location: index.php?action=home');
-			exit();
-		}
-		else
-		{
-			
-			$userManager = new UserManager;
-			$user = $userManager->delete($_SESSION['id']);
-
-		}
 	}
 }

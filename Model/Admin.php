@@ -35,6 +35,8 @@ class Admin
 
 	}
 
+	//GETTER
+
 	public function getAdmin_id()
 	{
 
@@ -70,7 +72,7 @@ class Admin
 
 	}
 
-	// Voir
+	// SETTER
 
 	public function setAdmin_id($admin_id)
 	{

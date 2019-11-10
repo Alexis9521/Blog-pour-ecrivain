@@ -1,56 +1,3 @@
-/* Page connexion */ 
-
-
-#connexion_page {
-
-	background-image: url("../Img/background_connexion.jpg");
-	height: 100%;
-	background-position: center;
-	background-size: cover;
-	margin: 0px;
-	padding: 0px;
-
-}
-
-
-/* Page inscription */
-
-#inscription_form {
-
-	background-image: url("../Img/background_connexion.jpg");
-	height: 100%;
-	background-position: center;
-	background-size: cover;
-	margin: 0px;
-	padding: 0px;
-
-}
-
-#form_inscription {
-
-	background-color: rgba(0,0,0,0.5);
-	color: white;
-	margin-top: 12em;
-	margin-bottom: 12em;
-	border-radius: 15px;
-	height: 420px;	
-
-}
-
-.form_login {
-
-	margin-bottom: 2em !important;
-
-}
-
-#form_delete {
-
-
-	position: absolute;
-	top: 300px;
-	z-index: 150;
-
-}
 
 /*			 */
 /* Page home */
@@ -92,12 +39,75 @@
 
 }
 
-#img_one_home > img {
+@media(max-width: 576px){
 
-	width: 300px;
-	height: auto;
+	#img1 , #img2 {
+
+		display: none;
+
+	}
 
 }
+/*                  */
+/* Page inscription */
+/*                  */
+
+#header_inscription {
+
+	margin-top: 55px;
+
+}
+
+#inscription_form {
+
+	background-image: url("../Img/background_connexion.jpg");
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+
+}
+
+#formul_inscription {
+
+	padding-bottom: 50px;
+
+}
+
+#formul_inscription .bg-secondary {
+
+	border-radius: 25px;
+
+}
+
+/*				  */
+/* Page connexion */ 
+/*				  */
+
+#section_login {
+
+	padding-top: 250px;
+	padding-bottom: 200px;
+
+}
+
+#background_login{
+
+	background-image: url("../Img/background_connexion.jpg");
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+
+}
+
+#section_login .bg-secondary {
+
+	border-radius: 25px;
+
+}
+
 
 /* 				*/
 /* Page Article */
@@ -119,208 +129,102 @@
 
 }
 
-/*              */
-#nav_link a:hover {
+/*			  */
+/* Page admin */
+/*            */
 
-	text-transform: uppercase;
+#header_admin {
 
-}
-
-#nav_link {
-
-	padding-left: 3em;
-
-}
-
-
-#title_form_login {
-
-	margin-top: 0.5em;
+	margin-top: 55px;
+    background: linear-gradient(to top, rgba(52,58,64,0.5), rgb(255,255,255));
+    padding-bottom: 10px;
+    padding-top: 10px;
 
 }
 
-#form_connexion {
+#section_admin{
 
-	margin-top: 12em;
-	margin-bottom: 12em;
-	background-color: rgba(0,0,0,0.5);
-
-	color: white;
-	border-radius: 15px;
-	height: 400px;
-
+	margin-top: 55px;
+	min-height: 600px;
 
 }
 
+@media(max-width: 576px){
 
 
-.form_login {
+	#header_admin{
 
-	border-radius: 5px;
+	background: none;
 
-}
-
-button {
-
-	margin-left: 150px;
-	background: white;
-	border: 2px solid rgb(107,204,204);
-	border-radius: 15px;
-	color: rgb(107,204,204);
-	padding: 0px 6px 0px 6px;
-	
-}
-
-button:hover {
-
-	color: rgb(0,0,0);
-	border: 2px solid rgb(0,0,0);
-
+	}
 
 }
 
-#submit_inscription {
-
-	padding: 5px;
-	border-radius: 5px;
-}
-
-#submit_login {
-
-
-	border-radius: 5px;
-	margin-bottom: 1em;
-
-}
-
-#log_page {
-
-	margin-left: 25px;
-	margin-right: 25px;
-
-}
-
-li {
-
-	list-style-type: none;
-
-}
-
-ul {
-
-	margin-bottom: 0px !important;
-
-}
-
-#inscription_link, #connexion_link {
-
-	border: 2px outset rgb(107,204,204);
-	border-radius: 5px;
-
-
-}
-
-#logout_link {
-
-	border: 2px outset rgb(253,0,58);
-	border-radius: 5px;
-
-
-}
-
-#account_link {
-
-	font-size: 1.2em;
-
-}
-#connexion_link, #account_link{
-
-	margin-left: 1em;
-
-}
-
-#inscription_link:hover {
-
-	border: 2px inset rgb(107,204,204);
-	color: rgb(107,204,204) !important;
-
-}
-
-#connexion_link:hover {
-
-	border: 2px inset rgb(107,204,204);
-	color: rgb(107,204,204) !important;
-
-}
-
-
-/*  	  */
-/* Footer */
-/*        */
-
-footer {
-
-
-	padding: 0px !important;
-
-}
-
-header {
-
-	padding: 0px !important;
-
-}
-
-#footer_one > a, #footer_two > a {
-
-	padding-bottom: 8px;
-
-}
-
-#pseudo {
-
-	margin: 0px !important;
-
-}
-
-#content_account {
-
-
-	height: 600px;
-
-}
-
-#Delete{
-
-	position: absolute;
-	top: 400px;
-
-}
-
-/* A trié */
-
-#section_admin {
-
-	height: 700px;
-
-}
-
-#header_article{
-
-	background-color: rgba(0,0,0,0.5);
-	border-bottom: 2px solid rgba(0,0,0,0.8);
-	height: 100px;
-
-}
+/*			   */
+/* ViewArticle */
+/*             */
 
 #header_viewarticle {
 
-	padding-top: 60px!important;;
+	padding-top: 55px;
 
 }
 
-#comment {
+#render_article {
 
-	height: 300px;
+	border-left: 1px solid gray;
+
+}
+
+/*         */
+/* Comment */ 
+/*         */
+
+.comment{
+
+	background-color: white;
+	border-radius: 10px;
+	border-bottom: rgba(0,0,0, 0.8) outset 5px;
+	border-right: rgba(0,0,0, 0.8) outset 5px;
+
+}
+
+/*                            */
+/* Page de création d'article */
+/*                            */
+
+#creation_article {
+
+	margin-top: 55px;
+
+}
+
+#header_article {
+
+	background: linear-gradient(to top, rgba(52,58,64,0.5), rgb(255,255,255));
+	padding-bottom: 10px;
+    padding-top: 10px;
+
+
+}
+
+@media(max-width: 576px){
+
+
+	#header_article{
+
+	background: none;
+
+	}
+
+}
+
+/*					   */
+/* Modifier un article */
+/*                     */
+
+#section_updateArticle {
+
+	margin-top: 55px;
 
 }

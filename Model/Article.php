@@ -33,6 +33,8 @@ class Article {
 
 	}
 
+	// GETTER
+	
 	public function getId()
 	{
 
@@ -68,7 +70,7 @@ class Article {
 
 	}
 
-	// Voir
+	// SETTER
 
 	public function setId($id)
 	{
@@ -94,7 +96,7 @@ class Article {
 	public function setContent($content)
 	{
 
-		$this->content = htmlspecialchars($content);
+		$this->content = $content;
 
 	}
 

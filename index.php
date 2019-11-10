@@ -5,7 +5,7 @@ session_start();
 
 spl_autoload_register(function ($class)
 {
-    $files = array('controller/' . $class . '.php', 'model/' . $class . '.php');
+    $files = array('Controller/' . $class . '.php', 'Model/' . $class . '.php');
     foreach ($files as $file)
     {
         if (file_exists($file))
@@ -21,6 +21,7 @@ $backendController = new BackendController();
 if(isset($_GET['action']))
 {
 
+	// Frontend
 	if($_GET['action'] == 'home')
 		$frontendController->home();
 	elseif($_GET['action'] == 'article')
@@ -35,10 +36,19 @@ if(isset($_GET['action']))
 		$frontendController->account();
 	elseif($_GET['action'] == 'delete')
 		$frontendController->deleteUser();
-	elseif($_GET['action'] == 'admin')
-		$backendController->admin();
 	elseif($_GET['action'] == 'viewarticle')
 		$frontendController->viewarticle();
+	elseif($_GET['action'] == 'error')
+		$frontendController->error();
+
+
+	// Backend 
+	elseif($_GET['action'] == 'newArticle')
+		$backendController->newArticle();
+	elseif($_GET['action'] == 'updateArticle')
+		$backendController->updateArticle();
+	elseif($_GET['action'] == 'admin')
+		$backendController->admin();
 	
 }
 else

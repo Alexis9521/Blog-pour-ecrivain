@@ -5,10 +5,12 @@ class AdminManager extends Manager
 	public function __construct()
 	{
 
-		$this->dbConnect();
+		$this->dbConnect(); // Connexion à la bdd
 
 	}
-
+    /*
+    Récupère les comptes admins
+    */
 	public function get($admin_pseudo)
     {
 

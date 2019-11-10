@@ -6,9 +6,13 @@ class UserManager extends Manager
 	public function __construct()
 	{
 
-		$this->dbConnect();
+		$this->dbConnect(); // Connexion à la bdd
 
 	}
+
+    /* 
+    Récupère les utilisateurs 
+    */
 
 	public function get($user_pseudo)
     {
@@ -30,6 +34,10 @@ class UserManager extends Manager
         }
     }
 
+    /*
+    Method pour vérifier si un pseudo existe déjà
+    */
+
 	public function exists($user_pseudo)
     {
         $query = $this->dbConnect()->prepare('SELECT user_pseudo FROM user WHERE LOWER(user_pseudo) = ?');
@@ -38,6 +46,10 @@ class UserManager extends Manager
         ]);
         return $query->fetch(PDO::FETCH_ASSOC);
     }
+
+    /*
+    Ajout d'un nouvel utilisateur
+    */
 
 	public function add(User $user)
 	{
@@ -56,27 +68,5 @@ class UserManager extends Manager
 			
 		]);
 	}
-/*
-    public function delete($user_id)
-    {
-
-        $query = $this->dbConnect()->prepare('DELETE FROM user WHERE user_id = ?');
-        $result = $query->execute([
-
-            $user_id
-
-        ]);
-
-        session_destroy()
-        header('Location: index.php?action=home');
-
-    }*/
-
-    /*
-
-    public function upload
-    {
-    
-    }*/
 }
 

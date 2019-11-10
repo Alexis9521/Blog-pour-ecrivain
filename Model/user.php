@@ -10,7 +10,7 @@ class User
 	private $user_email;
 	private $user_password;
 	private $user_date_creation;
-	private $user_role;
+	private $user_role; // Le role permet de definir les actions possible par un utilisateur
 
 
 	public function __construct(Array $data)
@@ -54,6 +54,8 @@ class User
 			$this->setUser_role($data['user_role']);
 	
 	}
+
+	// GETTER
 
 	public function getUser_id()
 	{
@@ -112,7 +114,7 @@ class User
 	}
 
 
-	// Voir
+	// SETTER
 
 	public function setUser_id($user_id)
 	{
