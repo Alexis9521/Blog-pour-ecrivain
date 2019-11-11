@@ -14,7 +14,7 @@ ob_start();
     <div class="container">
         <div class="text-center">
             <h2>Bienvenue sur la page d'administration de votre site</h2>
-            <p>Depuis cette page vous pouvez modifiez vos articles, les supprimer, voir vos articles, supprimer et accepter un commentaire</p>
+            <p>Depuis cette page vous pouvez modifier vos articles, les supprimer, voir vos articles, supprimer et accepter un commentaire</p>
         </div>
     </div>
 </header>

@@ -1,10 +1,10 @@
 <?php
 
 $title = $article->getTitle();
-$metaDescription = "Visionné chaque article";
+$metaDescription = "Visionner chaque article";
 $ogUrl = "https://jeanforterocheleblog.com/index.php?action=viewarticle";
 $ogTitle = $article->getTitle();
-$ogDescription = "Visionné chaque article";
+$ogDescription = "Visionner chaque article";
 
 ob_start();
 

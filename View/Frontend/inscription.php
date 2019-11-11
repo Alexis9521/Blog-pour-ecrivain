@@ -17,7 +17,7 @@ ob_start();
 			<div class="row">
 				<div class="text-white text-center col-12">
 					<h1 class="text-uppercase text-center">Formulaire d'inscription</h1>
-					<p>Veuillez remplir tous les champs demandé pour créer un compte et avoir accès à toute les fonctionnaités de notre blog</p>
+					<p>Veuillez remplir tous les champs demandés pour créer un compte et avoir accès à toutes les fonctionnaitées de notre blog</p>
 				</div>
 			</div>
 		</div>

@@ -19,13 +19,6 @@ if(session_status() == PHP_SESSION_NONE)
 	    <meta property="og:type" content="website" />
 	    <meta property="og:title" content="<?= $ogTitle ?>" />
 	    <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>" />
-	    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-		<link rel="icon" href="/favicon.png" type="image/png">
-		<link rel="icon" sizes="32x32" href="/favicon-32.png" type="image/png">
-		<link rel="icon" sizes="64x64" href="/favicon-64.png" type="image/png">
-
-
-
 		<link rel="stylesheet" type="text/css" href="Public/Css/style.css" />
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />

@@ -41,8 +41,8 @@ if(isset($_GET['action']))
 	elseif($_GET['action'] == 'error')
 		$frontendController->error();
 
-
 	// Backend 
+
 	elseif($_GET['action'] == 'newArticle')
 		$backendController->newArticle();
 	elseif($_GET['action'] == 'updateArticle')

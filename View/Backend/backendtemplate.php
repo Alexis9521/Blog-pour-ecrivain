@@ -17,7 +17,8 @@ if(session_status() == PHP_SESSION_NONE)
 		<meta property="og:url" content="<?= $ogUrl ?>" />
 	    <meta property="og:type" content="website" />
 	    <meta property="og:title" content="<?= $ogTitle ?>" />
-	    <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>" /><meta property="og:url" content="<?= $ogUrl ?>" />
+	    <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>" />
+	    <meta property="og:url" content="<?= $ogUrl ?>" />
 		<link rel="stylesheet" type="text/css" href="Public/Css/style.css" />
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
@@ -116,24 +117,15 @@ if(session_status() == PHP_SESSION_NONE)
 							<br>
 
 						</div>
-			
-						<div id="footer_two" class="col-sm mb-5 text-center">
-
-							<h5 class="text-white text-uppercase">Plus d'infos</h5>
-							<br>
-							<a class="text-white" title="Condition général d'utilisation" href="index.php?action=">CGU</a></li>
-							<br>
-							<a class="text-white" title="Politique de confidentialité" href="index.php?action=">Politique de confidentialité</a></li>
-
-
-						</div>
 
 						<div id="footer_three" class="col-sm text-center">
+
 							<h5 class="text-white text-uppercase">Administration</h5>
 							<br>
 							<a class="text-white" title="Login" href="index.php?action=login">Connexion</a></li>
 							<br>
 							<a class="text-white" title="Page administration" href="index.php?action=admin">Administration</a></li>
+
 						</div>
 					</div>
 				</div>
